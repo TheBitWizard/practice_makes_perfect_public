@@ -3,8 +3,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from os import system
+import os
 import time
+import platform
 
 tower1 = [3, 2, 1]
 tower2 = []
@@ -70,7 +71,12 @@ def switchPiece(from_tower, to_tower):
 
 def showTowers():
     
-    system('clear')
+    # Clears terminal preventing platform changes.
+    if platform.system() == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear")
+
     print(f'Tower of Hanoi')
     print(f'A- {tower1}')
     print(f'B- {tower2}')
